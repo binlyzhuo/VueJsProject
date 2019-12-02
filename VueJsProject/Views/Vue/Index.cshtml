@@ -64,9 +64,19 @@
         <div id="app6">
             <ul class="pagination">
                 <li v-for="n in pageCount">
-                    <a href="javascript:void(0)" v-bind:class="activeNumber===n+1?'active:''">{{n+1}}</a>
+                    <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">{{ n + 1 }}</a>
                 </li>
             </ul>
+        </div>
+        
+        <div id="app7">
+            <p><input type="text" v-model="message"/></p>
+            <p>
+                <button v-on:click="greet">Greet</button>
+            </p>
+            <p>
+                <button v-on:click="say('hi')">Hi</button>
+            </p>
         </div>
     </div>
 <script type="text/javascript">
@@ -103,6 +113,19 @@
     var v6 = new Vue({
         el: "#app6",
         data: {activeNumber:1,pageCount:10}
+    });
+
+    var v7 = new Vue({
+        el: '#app7',
+        data: { message: 'Hello,vue.js~' },
+        methods: {
+            greet: function() {
+                alert(this.message);
+            },
+            say: function(msg) {
+                alert(msg);
+            }
+        }
     });
 </script>
 </body>
