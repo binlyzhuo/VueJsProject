@@ -14,7 +14,96 @@
     <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
 </head>
 <body>
-    <div> 
+    <div>
+        <div id="app">
+            <p>{{message}}</p>
+            <input type="text" v-model="message" />
+        </div>
+        <div id="app2">
+            <h1>Hello,Vue.js</h1>
+            <h1 v-if="yes">YES!</h1>
+            <h1 v-if="no">NO!</h1>
+            <h1 v-if="age>=25">Age:{{age}}</h1>
+            <h1 v-if="name.indexOf('jack')>=0">Name:{{name}}</h1>
+        </div>
+        <div id="app3">
+            <h1>Hello,Vue.js</h1>
+            <h1 v-show="yes">YES!</h1>
+            <h1 v-show="no">NO!</h1>
+            <h1 v-show="age>=25">Age:{{age}}</h1>
+            <h1 v-show="name.indexOf('jack')>=0">Name:{{name}}</h1>
+        </div>
+        
+        <div id="app4">
+            <h1 v-if="age>=25">Age:{{age}}</h1>
+            <h1 v-else>Name:{{name}}</h1>
+            <h1>-------分割线-------</h1>
+            <h1 v-show="name.indexOf('keep')>=0">Name:{{name}}</h1>
+            <h1 v-else>Sex:{{sex}}</h1>
+        </div>
+        
+        <div id="app5">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Sex</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="person in people">
+                    <td>{{person.name}}</td>
+                    <td>{{person.age}}</td>
+                    <td>{{person.sex}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        -----------------------------------
+        <div id="app6">
+            <ul class="pagination">
+                <li v-for="n in pageCount">
+                    <a href="javascript:void(0)" v-bind:class="activeNumber===n+1?'active:''">{{n+1}}</a>
+                </li>
+            </ul>
+        </div>
     </div>
+<script type="text/javascript">
+    var exampleData = { message: 'Hello World~' }
+    var v1 = new Vue({
+        el: "#app",
+        data:exampleData
+    });
+
+    var v2 = new Vue({
+        el: "#app2",
+        data: {yes:true,no:false,age:28,name:'keepfool'}
+    });
+
+    var v3 = new Vue({
+        el: "#app3",
+        data: {yes:true,no:false,age:28,name:'keepfool'}
+    });
+
+    var v4 = new Vue({
+        el: "#app4",
+        data: {age:28,name:'keepfool',sex:'Male'}
+    });
+
+    var v5 = new Vue({
+        el: "#app5",
+        data: {
+            people: [
+                {name:'jack',age:30,sex:'Male'}
+                ]
+        }
+    });
+
+    var v6 = new Vue({
+        el: "#app6",
+        data: {activeNumber:1,pageCount:10}
+    });
+</script>
 </body>
 </html>
