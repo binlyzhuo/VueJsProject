@@ -14,7 +14,74 @@
     <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
 </head>
 <body>
-    <div> 
-    </div>
+    
+<div id="app">
+    <parent-component>
+    </parent-component>
+</div>
+
+<div id="app2">
+    <my-component></my-component>
+</div>
+<div id="app3">
+    <my-component></my-component>
+</div>
+<div id="app4">
+    
+</div>
+
 </body>
+<script type="text/javascript">
+    //var myComponent = Vue.extend({
+    //    template:'<div>This is my first component~</div>'
+    //});
+
+    //Vue.component('my-component', myComponent);
+    //var v1 = new Vue({
+    //    el:"#app1"
+    //});
+    //var v2 = new Vue({
+    //    el:"#app2"
+    //});
+
+    //var v3 = new Vue({
+    //    el: "#app3",
+    //    components: {
+    //        'my-component':myComponent
+    //    }
+    //});
+
+    //var child = Vue.extend({
+    //    template:'<p>This is a child component~</p>'
+    //});
+
+    //var parent = Vue.extend({
+    //    template: '<p>This is a parent component</p><child-component></child-component>',
+    //    components: {
+    //        'child-component':child
+    //    }
+    //});
+
+    //Vue.component('parent-component', parent);
+
+    var Child = Vue.extend({
+        template: '<p>This is a child component!</p>'
+    });
+
+    var Parent = Vue.extend({
+        // 在Parent组件内使用<child-component>标签
+        template: '<p>This is a Parent component!</p><child-component></child-component>',
+        components: {
+            // 局部注册Child组件，并将Child组件的标签设置为<child-component>，Child组件只能在Parent组件内使用
+            'child-component': Child
+        }
+    });
+
+    // 全局注册Parent组件
+    Vue.component('parent-component', Parent);
+
+    new Vue({
+        el: '#app'
+    })
+</script>
 </html>
