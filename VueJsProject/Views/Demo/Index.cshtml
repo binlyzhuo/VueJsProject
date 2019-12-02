@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript" src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/vue.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
+</head>
+<body>
+<div>
+    <div id="app">
+        <p>{{message}}</p>
+    </div>
+    <div id="app-1">
+        <span v-bind:title="message">
+            这是我的消息
+        </span>
+    </div>
+    <div id="app-2">
+        <p v-if="vsee">
+            vsee:true,现在你看到我了~
+        </p>
+    </div>
+    <div id="app-3">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    
+    <div id="app-4">
+        <p>{{message}}</p>
+        <button v-on:click="reseverMessage">反向消息</button>
+    </div>
+    
+    <div id="app-6">
+        <p>{{message}}</p>
+        <input type="text" v-model="message"/>
+    </div>
+    
+    <div id="app-7">
+        <ol>
+            <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+        </ol>
+    </div>
+</div>
+<script type="text/javascript">
+    var v0 = new Vue({
+        el: "#app",
+        data: {message:"message~"}
+    });
+
+    var v1 = new Vue({
+        el: "#app-1",
+        data: {message:"你加载了这个页面在"+new Date()}
+    });
+
+    var v2 = new Vue({
+        el: "#app-2",
+        data: {vsee:true}
+    });
+
+    var v3 = new Vue({
+        el: "#app-3",
+        data: {
+            todos: [{ text: "学习Javascript" }, { text: "学习Vue" }, {text:"123"}]
+        }
+    });
+
+    var v4 = new Vue({
+        el: "#app-4",
+        data: { message: "hello vue.js" },
+        methods: {
+            reseverMessage: function() {
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    });
+
+    var v6 = new Vue({
+        el: "#app-6",
+        data: {message:"hello vue.js"}
+    });
+
+    Vue.component("todo-item",
+        {
+            props: ["todo"],
+            template:"<li>{{todo.text}}</li>"
+        });
+
+    var v7 = new Vue({
+        el:"#app-7",
+        data: { groceryList: [{ text: "Vegetables" }, { text: "Cheese" }, {text:"Whatever else humans are supposed to eat."}]}
+    });
+</script>
+</body>
+</html>
