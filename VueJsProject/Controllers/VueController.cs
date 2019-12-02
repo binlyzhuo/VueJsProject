@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace VueJsProject.Controllers
 {
+    //https://www.cnblogs.com/ywsoftware/p/10948706.html
     public class VueController : Controller
     {
         // GET: Vue
