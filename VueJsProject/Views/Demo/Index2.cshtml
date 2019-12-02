@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+    <script type="text/javascript" src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/vue.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
+</head>
+<body>
+<div>
+    <ul id="example-1">
+        <li v-for="item in items">
+            {{item.message}}
+        </li>
+    </ul>
+</div>
+<div>
+    <ul id="repeat-object">
+        <li v-for="pro in myObject">
+            {{pro}}
+        </li>
+        
+        <li v-for="(value,key) in myObject">
+            {{key}}:{{value}}
+        </li>
+        
+        <li v-for="(value,key,index) in myObject">
+            {{index}}.{{key}}:{{value}}
+        </li>
+    </ul>
+</div>
+<div id="todo-list-example">
+    <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="add new todo"/>
+    <ul>
+        <li is="todo-item" v-for="(todo,index) in todos" v-bind:key="todo" v-bind:title="todo" v-on:remove="todos.splice(index,1)"></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var example1 = new Vue({
+        el: "#example-1",
+        data: {
+            items: [
+                { message: "Foo" },
+                {message:"Bar"}
+                ]
+        }
+    });
+
+    var myVue = new Vue({
+        el: "#repeat-object",
+        data: {
+            myObject: {
+                姓: "东",
+                名: "特兰坦",
+                age: 32,
+                是否结婚: true,
+                小孩:1
+            }
+        }
+    });
+
+    Vue.component("todo-item",
+        {
+            template:'<li>{{title}}' +
+                '<button v-on:click="$emit(\'remove\')">Click</button>' +
+                '</li>',
+            props:['title']
+        });
+
+    var vtodo = new Vue({
+        el: "#todo-list-example",
+        data: {
+            newTodoText: "",
+            todos:["做菜","扔垃圾","割草坪"]
+        },
+        methods: {
+            addNewTodo: function() {
+                this.todos.push(this.newTodoText);
+                this.newTodoText = "";
+            }
+        }
+    });
+</script>
+</body>
+</html>
+.
