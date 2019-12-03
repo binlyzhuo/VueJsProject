@@ -250,6 +250,7 @@
     <Content Include="Views\Vue\Index.cshtml" />
     <Content Include="Views\Vue\Index2.cshtml" />
     <Content Include="Views\Vue\Index3.cshtml" />
+    <Content Include="Views\Vue\Index4.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
