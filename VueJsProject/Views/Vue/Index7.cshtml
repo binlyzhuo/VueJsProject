@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index7</title>
+    <script type="text/javascript" src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/vue.js"></script>
+    <script type="text/javascript" src="~/Scripts/lodash.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
+</head>
+<body>
+<div id="app1">
+    <button v-on:click="counter+=1">Add 1</button>
+    <p>The button above has been clicked {{counter}} times.</p>
+</div>
+<div id="app2">
+    <button v-on:click="greet">Greet</button>
+</div>
+<script type="text/javascript">
+    var v1 = new Vue({
+        el: "#app1",
+        data: {counter:0}
+    });
+
+    var v2 = new Vue({
+        el: "#app2",
+        data: { name: 'vue.js' },
+        methods: {
+            greet: function(event) {
+                alert('hello,' + this.name + '!');
+                if (event) {
+                    alert(event.target.tagName);
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
