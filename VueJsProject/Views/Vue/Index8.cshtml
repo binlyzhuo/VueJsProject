@@ -15,19 +15,19 @@
     <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
 </head>
 <body>
-<div id="app1">
-    <button-counter></button-counter>
-</div>
-<div id="app2">
-    <blog-post title="My journey with Vue"></blog-post>
-    <blog-post title="Blogging with Vue"></blog-post>
-    <blog-post title="Why Vue is so fun"></blog-post>
-</div>
----------------------------------------------------
-<div id="app3">
-    <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
-</div>
-<script type="text/javascript">
+    <div id="app1">
+        <button-counter></button-counter>
+    </div>
+    <div id="app2">
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Blogging with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post>
+    </div>
+    ---------------------------------------------------
+    <div id="app3">
+        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
+    </div>
+    <script type="text/javascript">
     Vue.component('button-counter',
         {
             data: function() {
@@ -60,6 +60,6 @@
                 ]
         }
     });
-</script>
+    </script>
 </body>
 </html>
