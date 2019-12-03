@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index6</title>
+    <script type="text/javascript" src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/vue.js"></script>
+    <script type="text/javascript" src="~/Scripts/lodash.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
+</head>
+<body>
+<div id="app1">
+    <input v-model="message" placeholder="edit me"/>
+    <p>Message is :{{message}}</p>
+</div>
+<div id="app2">
+    <span>Multiline message is:</span>
+    <p style="white-space: pre-line">{{message}}</p>
+    <br/>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+</div>
+<div id="app3">
+    <input type="checkbox" id="checkbox" v-model="checked"/>
+    <label for="checkbox">{{checked}}</label>
+</div>
+
+<div id="app4">
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+</div>
+
+<div id="app5">
+    <select v-model="selected">
+        <option disabled value="">请选择</option>
+        <option value="1">A</option>
+        <option value="2">B</option>
+        <option value="3">C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<script type="text/javascript">
+    var v1 = new Vue({
+        el: "#app1",
+        data: {message:'msg'}
+    });
+
+    var v2 = new Vue({
+        el: "#app2",
+        data: {message:'msg'}
+    });
+
+    var v3 = new Vue({
+        el: "#app3",
+        data: {checked:true}
+    });
+
+    var v4 = new Vue({
+        el: '#app4',
+        data: {
+            checkedNames:[]
+        }
+    });
+
+    var v5 = new Vue({
+        el: "#app5",
+        data: {selected:''}
+    });
+</script>
+</body>
+</html>
