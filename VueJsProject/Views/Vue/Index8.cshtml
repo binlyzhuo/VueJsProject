@@ -19,14 +19,17 @@
         <button-counter></button-counter>
     </div>
     <div id="app2">
-        <blog-post title="My journey with Vue"></blog-post>
-        <blog-post title="Blogging with Vue"></blog-post>
-        <blog-post title="Why Vue is so fun"></blog-post>
+        <blog-post title="My journey with Vue" time='2019-12-12'></blog-post>
+        <blog-post title="Blogging with Vue" time='2019-12-12'></blog-post>
+        <blog-post title="Why Vue is so fun" time='2019-12-12'></blog-post>
     </div>
     ---------------------------------------------------
-    <div id="app3">
-        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
-    </div>
+<div id="app3">
+    <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
+</div>
+<div id="app4">
+
+</div>
     <script type="text/javascript">
     Vue.component('button-counter',
         {
@@ -42,8 +45,8 @@
 
     Vue.component('blog-post',
         {
-            props: ['title'],
-            template:'<h3>{{title}}</h3>'
+            props: ['title','time'],
+            template:'<h3>{{title}}-{{time}}</h3>'
         });
 
     var v2 = new Vue({
