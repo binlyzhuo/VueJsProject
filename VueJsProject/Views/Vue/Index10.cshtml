@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index10</title>
+    <script type="text/javascript" src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/vue.js"></script>
+    <script type="text/javascript" src="~/Scripts/lodash.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
+</head>
+<body>
+<div id="app1">
+    <blog-post post-title="hello!"></blog-post>
+</div>
+<div id="app2">
+    <blog-post2 v-bind:title="post.title"></blog-post2>
+</div>
+<div id="app3">
+    <blog-post3 v-bind:title="post.title+' by '+post.author.name"></blog-post3>
+</div>
+<script type="text/javascript">
+    Vue.component('blog-post',
+        {
+            props: ['postTitle'],
+            template:'<h3>{{postTitle}}</h3>'
+        });
+
+    Vue.component('blog-post2',
+        {
+            props: ['title'],
+            template:'<h3>{{title}}</h3>'
+        });
+
+    Vue.component('blog-post3',
+        {
+            props: ['title'],
+            template:'<h3>{{title}}</h3>'
+        });
+    var v1 = new Vue({
+        el:'#app1'
+    });
+
+    var v2 = new Vue({
+        el: '#app2',
+        data: {
+            post: {title:'JUST DO IT~'}
+        }
+    });
+
+    var v3 = new Vue({
+        el: '#app3',
+        data: {
+            post: {
+                title:'JUST DO IT~',
+                author: {
+                    name:'BIN'
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

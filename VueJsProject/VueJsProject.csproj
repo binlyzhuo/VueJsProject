@@ -134,6 +134,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Data\posts.json" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -260,6 +261,7 @@
     <Content Include="Views\Vue\Index7.cshtml" />
     <Content Include="Views\Vue\Index8.cshtml" />
     <Content Include="Views\Vue\Index9.cshtml" />
+    <Content Include="Views\Vue\Index10.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -51,6 +51,23 @@
     </select>
     <span>Selected: {{ selected }}</span>
 </div>
+
+<div id="app6">
+    <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">{{option.text}}</option>
+    </select>
+    <span>Selected:{{selected}}</span>
+</div>
+<div id="app7">
+    <input type="checkbox" v-model="toggle" true-value="yes" false-value="no"/>Check
+    <br/>
+    <span>{{toggle}}</span>
+</div>
+
+<div id="app8">
+    <input type="radio" v-model="pick" v-bind:value="a"/>
+    <span>{{pick}}-{{a}}</span>
+</div>
 <script type="text/javascript">
     var v1 = new Vue({
         el: "#app1",
@@ -77,6 +94,33 @@
     var v5 = new Vue({
         el: "#app5",
         data: {selected:''}
+    });
+
+    var v6 = new Vue({
+        el: '#app6',
+        data: {
+            selected: 'A',
+            options: [
+                { text: 'ONE', value: 'A' },
+                { text: 'TWO', value: 'B' },
+                {text:'THREE',value:'C'}
+            ]
+        }
+    });
+
+    var v7 = new Vue({
+        el: '#app7',
+        data: {
+            toggle:'no'
+        }
+    });
+
+    var v8 = new Vue({
+        el: '#app8',
+        data: {
+            pick: 'a',
+            a:'b'
+        }
     });
 </script>
 </body>
