@@ -20,40 +20,65 @@
 </div>*@
 --------------------------------
 <div id="app2">
-    <div style="{fontSize: postFontSize+'em'}">
-        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-on:enlarge-text="postFontSize+=0.1"></blog-post>
+    <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-on:enlarge-text="postFontSize += 0.1"></blog-post>
     </div>
 </div>
 <script type="text/javascript">
+    //Vue.component('blog-post',
+    //    {
+    //        props: ['post'],
+    //        template:'<div class="blog-post">' +
+    //            '<h3>{{post.title}}</h3>' +
+    //            '<button v-on:click="$emit(\'enlarge-text\')">Enlarge text</button>'+
+    //            '<div v-html="post.content"></div>'+
+    //            '</div>'
+    //    });
+
+    //    //var v1 = new Vue({
+    //    //    el: '#app1',
+    //    //    data: {
+    //    //        posts: [
+    //    //            { id: 1, title: 'title001', content: '<span style="color:green">hello js</span>' },
+    //    //            {id:2,title:'title002',content:'hello js2'}
+    //    //        ],
+    //    //        postFontSize:1
+    //    //    }
+    //    //});
+
+    //var v2 = new Vue({
+    //    el: '#app2',
+    //    data: {
+    //        posts: [
+    //            { id: 1, title: 'title001', content: '<span style="color:green">hello js</span>' },
+    //            {id:2,title:'title002',content:'hello js2'}
+    //        ],
+    //        postFontSize:1
+    //    }
+    //});
+
     Vue.component('blog-post',
         {
             props: ['post'],
-            template:'<div class="blog-post">' +
-                '<h3>{{post.title}}</h3>' +
-                '<button v-on:click="$emit(\'enlarge-text\')">Enlarge text</button>'+
-                '<div v-html="post.content"></div>'+
-                '</div>'
+            template: '\
+    <div class="blog-post">\
+      <h3>{{ post.title }}</h3>\
+      <button v-on:click="$emit(\'enlarge-text\')">\
+        Enlarge text\
+      </button>\
+      <div v-html="post.content"></div>\
+    </div>\
+  '
         });
-
-        //var v1 = new Vue({
-        //    el: '#app1',
-        //    data: {
-        //        posts: [
-        //            { id: 1, title: 'title001', content: '<span style="color:green">hello js</span>' },
-        //            {id:2,title:'title002',content:'hello js2'}
-        //        ],
-        //        postFontSize:1
-        //    }
-        //});
-
-    var v1 = new Vue({
+    var v3 = new Vue({
         el: '#app2',
         data: {
             posts: [
-                { id: 1, title: 'title001', content: '<span style="color:green">hello js</span>' },
-                {id:2,title:'title002',content:'hello js2'}
+                { id: 1, title: 'My journey with Vue', content: '...content...' },
+                { id: 2, title: 'Blogging with Vue', content: '...content...' },
+                { id: 3, title: 'Why Vue is so fun', content: '...content...' }
             ],
-            postFontSize:1
+            postFontSize: 1
         }
     });
     </script>
