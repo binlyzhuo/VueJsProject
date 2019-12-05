@@ -59,5 +59,10 @@ namespace VueJsProject.Controllers
         {
             return View();
         }
+
+        public ActionResult Index11()
+        {
+            return View();
+        }
     }
 }
