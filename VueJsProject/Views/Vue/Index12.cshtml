@@ -32,6 +32,9 @@
     <div id="app4">
         <div v-bind:class="[isActive?activeClass:'',errorClass]">app4</div>
     </div>
+    <div id="app5">
+        <div v-bind:style="{color:activeColor,fontSize:fontSize+'px'}">app5</div>
+    </div>
     <script type="text/javascript">
         var v1 = new Vue({
             el: '#app1',
@@ -65,6 +68,14 @@
                 isActive: true,
                 activeClass: 'active',
                 errorClass:'text-danger'
+            }
+        });
+
+        var v5 = new Vue({
+            el: '#app5',
+            data: {
+                activeColor: 'red',
+                fontSize:30
             }
         });
     </script>
