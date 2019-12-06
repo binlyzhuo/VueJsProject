@@ -14,7 +14,64 @@
     <script type="text/javascript" src="~/Scripts/axios.min.js"></script>
 </head>
 <body>
-    <div> 
-    </div>
+<div id="example-1">
+    <button v-on:click="counter+=1">Add 1</button>
+    <p>The button above has been clicked {{counter}} times.</p>
+</div>
+<div id="exmaple-2">
+    <button v-on:click="greet">Greet</button>
+</div>
+<div id="example-3">
+    <button v-on:click="say('hi');">Say Hi</button>
+    <button v-on:click="say('what');">Say what</button>
+</div>
+<div id="example-4">
+    <button v-on:click="warn('Form cannot be submited yet.')">
+        Submit
+    </button>
+</div>
+<script type="text/javascript">
+    var example1 = new Vue({
+        el: '#example-1',
+        data: {
+            counter:0
+        }
+    });
+
+    var example2 = new Vue({
+        el: '#exmaple-2',
+        data: { name: 'vue.js' },
+        methods: {
+            greet: function(event) {
+                alert('Hello ' + this.name + '!');
+                if (event) {
+                    alert(event.target.tagName);
+                }
+            }
+        }
+    });
+
+    var example3 = new Vue({
+        el: '#example-3',
+        methods: {
+            say: function(message) {
+                alert(message);
+            }
+        }
+    });
+
+    var example4 = new Vue({
+        el: '#example-4',
+        methods: {
+            warn:function(message, event) {
+                if (event) {
+                    alert('hello event~');
+                    event.preventDefault();
+                }
+                alert(message);
+            }
+        }
+    });
+</script>
 </body>
 </html>
