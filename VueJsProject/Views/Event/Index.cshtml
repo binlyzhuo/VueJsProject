@@ -30,6 +30,22 @@
         Submit
     </button>
 </div>
+
+<div id="example-5">
+    <a v-on:click.stop="doThis">Click</a>
+</div>
+
+<div id="example-6">
+    <form method="post" v-on:submit.prevent="onSubmit">
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+<div id="example-7" style="border: aquamarine;">
+    <div v-on:click.self="doThat">
+        <a href="#">link</a>
+    </div>
+</div>
 <script type="text/javascript">
     var example1 = new Vue({
         el: '#example-1',
@@ -69,6 +85,34 @@
                     event.preventDefault();
                 }
                 alert(message);
+            }
+        }
+    });
+
+    var example5 = new Vue({
+        el: '#example-5',
+        methods: {
+            doThis: function() {
+                alert('DO This~');
+            }
+        }
+    });
+
+    var example6 = new Vue({
+        el: '#example-6',
+        methods: {
+            onSubmit: function() {
+                alert('submit~');
+            }
+        }
+    });
+
+
+    var example7 = new Vue({
+        el: '#example-7',
+        methods: {
+            doThat: function() {
+                alert('doThat~');
             }
         }
     });
